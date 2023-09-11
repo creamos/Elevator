@@ -6,3 +6,5 @@ obj
 Temp
 *.csproj
 *.sln
+.idea
+Assembly-CSharp.csproj.DotSettings
