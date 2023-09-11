@@ -1,12 +1,13 @@
 using System;
+using UnityEngine;
 
 [Serializable]
-public class Pawn
+public class Pawn : MonoBehaviour
 {
     public int Destination;
     public bool IsInElevator;
 
-    public Pawn(int destination)
+    public void Init(int destination)
     {
         Destination = destination;
     }
