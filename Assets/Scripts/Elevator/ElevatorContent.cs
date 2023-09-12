@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -13,6 +14,10 @@ public class ElevatorContent : MonoBehaviour
     private void Awake()
     {
         elevatorInfo = GetComponent<ElevatorInfo>();
+    }
+
+    private void Start()
+    {
         floors = FloorManager.Instance;
     }
 
