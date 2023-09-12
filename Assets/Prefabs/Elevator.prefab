@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1211228234783404660}
   - component: {fileID: 1211228234783404661}
-  - component: {fileID: 1211228234783404618}
   - component: {fileID: 1211228234783404662}
   - component: {fileID: 1211228234783404619}
+  - component: {fileID: 345004622408581441}
   - component: {fileID: 1211228234783404616}
   - component: {fileID: 1211228234783404617}
   m_Layer: 0
@@ -54,19 +54,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnableIMU: 1
   EnableLocalize: 1
---- !u!114 &1211228234783404618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211228234783404663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f35ee55b024a1092b25ab7f3522a40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 0
 --- !u!114 &1211228234783404662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce177944989e249b6c7cb24d7aa3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potentiometer: {fileID: 1211228234783404618}
   Acceleration: 0
 --- !u!114 &1211228234783404619
 MonoBehaviour:
@@ -93,8 +79,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b83e94f78e40041a0994530236e2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 1211228234783404662}
+  joyconHandler: {fileID: 1211228234783404662}
+  rotaryHandler: {fileID: 345004622408581441}
   speedMod: 10
+--- !u!114 &345004622408581441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211228234783404663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6faacc84d5cb9c74a90a4e2cdbf40509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialCommunication: {fileID: 0}
+  sensitivity: 1
 --- !u!114 &1211228234783404616
 MonoBehaviour:
   m_ObjectHideFlags: 0

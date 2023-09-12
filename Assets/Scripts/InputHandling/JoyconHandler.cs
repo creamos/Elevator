@@ -2,9 +2,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(JoyconManager))]
 [SelectionBase]
-public class InputHandler : MonoBehaviour
+public class JoyconHandler : MonoBehaviour
 {
-    [SerializeField] private Potentiometer potentiometer;
     private JoyconManager joyconManager;
     private Joycon joycon;
 
@@ -15,10 +14,9 @@ public class InputHandler : MonoBehaviour
         joyconManager = GetComponent<JoyconManager>();
     }
 
-    private void Update ()
+    private void Update()
     {
         HandleJoycon();
-        HandleAcceleration();
     }
 
     private void HandleJoycon()
@@ -38,10 +36,5 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             joycon.Recenter();
-    }
-
-    private void HandleAcceleration()
-    {
-        Acceleration = potentiometer.Value;
     }
 }

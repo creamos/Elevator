@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] private InputHandler inputHandler;
+    [SerializeField] private JoyconHandler joyconHandler;
+    [SerializeField] private RotaryHandler rotaryHandler;
 
     [SerializeField] private float speedMod = 1;
 
     private void Update()
     {
-        float accel = inputHandler.Acceleration;
-        transform.position += Vector3.up * accel * Time.deltaTime * speedMod;
+        transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.Acceleration);
     }
 }
