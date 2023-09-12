@@ -48,31 +48,40 @@ public class Floor : MonoBehaviour
         WaitingPawns[0] = null;
         pawnCount--;
         
-        for (int i = 1; i < WaitingPawns.Count; ++i)
-        {
-            if (WaitingPawns[i] == null) break;
-            
-            WaitingPawns[i - 1] = WaitingPawns[i];
-            WaitingPawns[i] = null;
-        }
+        ShiftQueueContent();
+        
+        //MovePawns();
+
+        if (WaitingPawns[0] != null) WaitingPawns[0].ShowDestinationBubble();
 
         return pawn;
     }
-    
+
+    private void ShiftQueueContent()
+    {
+        for (int i = 1; i < WaitingPawns.Count; ++i)
+        {
+            if (WaitingPawns[i] == null) break;
+
+            WaitingPawns[i - 1] = WaitingPawns[i];
+            WaitingPawns[i] = null;
+        }
+    }
+
     private void SpawnPawn()
     {
-        Debug.Log("Pawn Spawned on floor " + Index);
         if (pawnCount == WaitingPawns.Count)
             GameOver();
 
         else
         {
-            var pawn = Instantiate(pawnPrefab, spawnPos.position + Vector3.left * offset * pawnCount, Quaternion.identity);
+            var pawn = Instantiate(pawnPrefab, spawnPos.position + offset * pawnCount * Vector3.left, Quaternion.identity);
 
             int destination = Random.Range(0, floorCount-1);
             if (destination >= Index) destination++;
             pawn.Init(destination);
-            
+
+            if (pawnCount == 0) pawn.ShowDestinationBubble();
             WaitingPawns[pawnCount] = pawn;
             pawnCount += 1;
         }

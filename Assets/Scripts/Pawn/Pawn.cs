@@ -8,9 +8,12 @@ public class Pawn : MonoBehaviour
     public int Destination;
     public bool IsInElevator;
 
+    [SerializeField] private DestinationBubble destinationBubble;
+
     public void Init(int destination)
     {
         Destination = destination;
+        destinationBubble.Init(destination);
     }
 
     /// <summary>
@@ -31,6 +34,12 @@ public class Pawn : MonoBehaviour
         StartCoroutine(JumpOutElevator());
     }
 
+    public void ShowDestinationBubble()
+    {
+        destinationBubble.Show();
+    }
+    
+
     private IEnumerator JumpInElevator()
     {
         yield return JumpTo(ElevatorInfo.Instance.SeatTarget, 1f, 0.5f);
@@ -47,8 +56,6 @@ public class Pawn : MonoBehaviour
     
     private IEnumerator JumpTo(Transform target, float height, float duration)
     {
-        Debug.Log("Jump to " + target.position);
-        
         Vector3 initialPos = transform.position;
 
         float startTime = Time.time;
