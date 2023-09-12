@@ -68,7 +68,7 @@ public class Floor : MonoBehaviour
         }
     }
 
-    private void SpawnPawn()
+    public void SpawnPawn()
     {
         if (pawnCount == WaitingPawns.Count)
             GameOver();
