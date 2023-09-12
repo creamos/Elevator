@@ -95,7 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialCommunication: {fileID: 0}
-  sensitivity: 1
+  sensitivity: 120
+  sharpness: 3
+  upBias: 1
+  downBias: 1.4
+  debugMode: 0
 --- !u!114 &1211228234783404616
 MonoBehaviour:
   m_ObjectHideFlags: 0

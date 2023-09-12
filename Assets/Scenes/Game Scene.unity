@@ -375,7 +375,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 345004622408581441, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: debugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 345004622408581441, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: serialCommunication

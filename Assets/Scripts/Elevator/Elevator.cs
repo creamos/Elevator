@@ -11,6 +11,6 @@ public class Elevator : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.Acceleration);
+        transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.CurrentAcceleration);
     }
 }
