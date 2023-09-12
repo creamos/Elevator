@@ -40,13 +40,15 @@ public class Pawn : MonoBehaviour
     private IEnumerator JumpOutElevator()
     {
         transform.parent = null;
-        yield return JumpTo(FloorManager.Instance.Floors[Destination].GroundHeightTarget, 1f, 0.5f);
-        yield return JumpTo(FloorManager.Instance.Floors[Destination].ExitTarget, 0f, 0.5f);
+        yield return JumpTo(FloorManager.Instance.Floors[Destination].ExitElevatorTarget, 1f, 0.5f);
+        yield return JumpTo(FloorManager.Instance.Floors[Destination].ExitFloorTarget, 0f, 0.5f);
         Destroy(gameObject);
     }
     
     private IEnumerator JumpTo(Transform target, float height, float duration)
     {
+        Debug.Log("Jump to " + target.position);
+        
         Vector3 initialPos = transform.position;
 
         float startTime = Time.time;

@@ -32,7 +32,6 @@ public class ElevatorContent : MonoBehaviour
                 if (passenger)
                 {
                     AddPassenger(passenger);
-                    elevatorInfo.SetPickupCooldown(1f);
                 }
             }
 
@@ -41,7 +40,7 @@ public class ElevatorContent : MonoBehaviour
                 if (Passenger.Destination == floor.Index)
                 {
                     ReleasePassenger();
-                    elevatorInfo.SetPickupCooldown(1f);
+                    elevatorInfo.SetPickupCooldown(0.25f);
                 }
             }
         }

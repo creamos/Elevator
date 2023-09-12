@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,7 +6,7 @@ public class Floor : MonoBehaviour
 {
     public int Index;
     public List<Pawn> WaitingPawns;
-    public Transform GroundHeightTarget, ExitTarget;
+    public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;
 
     [SerializeField] private Transform spawnPos;
     [SerializeField] private float offset;
@@ -69,7 +68,10 @@ public class Floor : MonoBehaviour
         else
         {
             var pawn = Instantiate(pawnPrefab, spawnPos.position + Vector3.left * offset * pawnCount, Quaternion.identity);
-            pawn.Init(Random.Range(0, floorCount));
+
+            int destination = Random.Range(0, floorCount-1);
+            if (destination >= Index) destination++;
+            pawn.Init(destination);
             
             WaitingPawns[pawnCount] = pawn;
             pawnCount += 1;
