@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(JoyconManager))]
 [SelectionBase]
@@ -9,7 +10,7 @@ public class JoyconHandler : MonoBehaviour
     private JoyconManager joyconManager;
     private Joycon joycon;
 
-    public Vector3 Acceleration = Vector3.zero;
+    public Vector3 JoyconRotation = Vector3.zero;
 
     private void Awake()
     {
@@ -31,12 +32,12 @@ public class JoyconHandler : MonoBehaviour
             }
             else
             {
-                Acceleration = Vector3.zero;
+                JoyconRotation = Vector3.zero;
                 return;
             }
         }
 
-        Acceleration = joycon.GetAccel() * sensitivity;
+        JoyconRotation = joycon.GetGyro() * sensitivity;
         
         if (Input.GetKeyDown(KeyCode.Space))
             joycon.Recenter();

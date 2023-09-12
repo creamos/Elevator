@@ -11,6 +11,6 @@ public class Elevator : MonoBehaviour
     private void Update()
     {
         transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.CurrentAcceleration);
-        transform.rotation = Quaternion.Euler(joyconHandler.Acceleration.x, 0, joyconHandler.Acceleration.z);
+        transform.rotation = Quaternion.Euler(joyconHandler.JoyconRotation);
     }
 }
