@@ -4,10 +4,12 @@ using UnityEngine;
 [SelectionBase]
 public class JoyconHandler : MonoBehaviour
 {
+    [SerializeField] private float sensitivity = 1f;
+    
     private JoyconManager joyconManager;
     private Joycon joycon;
 
-    public float Acceleration;
+    public Vector3 Acceleration = Vector3.zero;
 
     private void Awake()
     {
@@ -29,11 +31,13 @@ public class JoyconHandler : MonoBehaviour
             }
             else
             {
-                Acceleration = 0;
+                Acceleration = Vector3.zero;
                 return;
             }
         }
 
+        Acceleration = joycon.GetAccel() * sensitivity;
+        
         if (Input.GetKeyDown(KeyCode.Space))
             joycon.Recenter();
     }
