@@ -10,7 +10,6 @@ public class Elevator : MonoBehaviour
     private void Update()
     {
         float accel = inputHandler.Acceleration;
-        
         transform.position += Vector3.up * accel * Time.deltaTime * speedMod;
     }
 }
