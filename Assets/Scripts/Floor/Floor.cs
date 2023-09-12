@@ -40,6 +40,25 @@ public class Floor : MonoBehaviour
         }
     }
 
+    public Pawn TryPickup()
+    {
+        if (WaitingPawns[0] == null)
+            return null;
+        
+        var pawn = WaitingPawns[0];
+        WaitingPawns[0] = null;
+        
+        for (int i = 1; i < WaitingPawns.Count; ++i)
+        {
+            if (WaitingPawns[i] == null) break;
+            
+            WaitingPawns[i - 1] = WaitingPawns[i];
+            WaitingPawns[i] = null;
+        }
+
+        return pawn;
+    }
+    
     private void SpawnPawn()
     {
         Debug.Log("Pawn Spawned on floor " + Index);

@@ -1,15 +1,52 @@
+using System;
 using UnityEngine;
 
+[RequireComponent(typeof(ElevatorInfo))]
 public class ElevatorContent : MonoBehaviour
 {
+    [SerializeField] private FloorManager floors;
+    private ElevatorInfo elevatorInfo;
+
     public int MaxPawns;
     public Pawn Passenger;
 
-    public void AddPawn(Pawn pawn)
+    private void Awake()
+    {
+        elevatorInfo = GetComponent<ElevatorInfo>();
+    }
+
+    private void Update()
+    {
+        if (elevatorInfo.IsAtFloorLevel && !elevatorInfo.OnPickupCooldown)
+        {
+            Floor floor = floors.Floors[elevatorInfo.FloorLevel];
+            if (Passenger == null)
+            {
+                var passenger = floor.TryPickup();
+                if (passenger)
+                {
+                    AddPassenger(passenger);
+                    elevatorInfo.SetPickupCooldown(1f);
+                }
+            }
+
+            else if (Passenger)
+            {
+                if (Passenger.Destination == floor.Index)
+                {
+                    ReleasePassenger();
+                    elevatorInfo.SetPickupCooldown(1f);
+                }
+            }
+        }
+    }
+
+    public void AddPassenger(Pawn pawn)
     {
         if (Passenger != pawn)
         {
             Passenger = pawn;
+            pawn.GetInElevator();
 
             // Do additional things when a pawn is successfully added to the elevator
         }
@@ -19,17 +56,11 @@ public class ElevatorContent : MonoBehaviour
         }
     }
 
-    public void RemovePawn(Pawn pawn)
+    public void ReleasePassenger()
     {
-        if (Passenger == pawn)
-        {
-            Passenger = null;
-
-            // Do additional things when a pawn is successfully removed from the elevator
-        }
-        else
-        {
-            // The pawn wasn't in the elevator (potential logical error).
-        }
+        Passenger.Release();
+        Passenger = null;
+        // Do additional things when a pawn is successfully removed from the elevator
+        
     }
 }
