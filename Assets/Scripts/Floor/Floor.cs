@@ -8,15 +8,14 @@ public class Floor : MonoBehaviour
     public List<Pawn> WaitingPawns;
     public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;
 
-    [SerializeField] private Transform spawnPos;
+    [SerializeField] private Transform waitingPos, spawnPos;
     [SerializeField] private float offset;
 
     private int pawnCount;
     private int floorCount;
     private Pawn pawnPrefab;
 
-    [SerializeField] private KeyCode spawnPawnKey;
-
+    public Vector3 GetWaitingPos(int positionInQueue) => offset * positionInQueue * Vector3.left + waitingPos.position;
 
     public void Init(int index, int floorCount, int maxPawns, Pawn pawnPrefab)
     {
@@ -31,17 +30,9 @@ public class Floor : MonoBehaviour
             WaitingPawns.Add(null);
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(spawnPawnKey))
-        {
-            SpawnPawn();
-        }
-    }
-
     public Pawn TryPickup()
     {
-        if (WaitingPawns[0] == null)
+        if (WaitingPawns[0] == null || !WaitingPawns[0].MovementInQueueBehaviour.WaitingPosReached)
             return null;
         
         var pawn = WaitingPawns[0];
@@ -50,9 +41,7 @@ public class Floor : MonoBehaviour
         
         ShiftQueueContent();
         
-        //MovePawns();
-
-        if (WaitingPawns[0] != null) WaitingPawns[0].ShowDestinationBubble();
+        MovePawns();
 
         return pawn;
     }
@@ -75,18 +64,31 @@ public class Floor : MonoBehaviour
 
         else
         {
-            var pawn = Instantiate(pawnPrefab, spawnPos.position + offset * pawnCount * Vector3.left, Quaternion.identity);
+            var pawn = Instantiate(pawnPrefab, spawnPos.position, Quaternion.identity);
 
             int destination = Random.Range(0, floorCount-1);
             if (destination >= Index) destination++;
             pawn.Init(destination);
-
-            if (pawnCount == 0) pawn.ShowDestinationBubble();
+            
             WaitingPawns[pawnCount] = pawn;
+            pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
+            
             pawnCount += 1;
+            
         }
     }
 
+    private void MovePawns()
+    {
+        for (int pawnIndex = 0; pawnIndex < pawnCount; pawnIndex++)
+        {
+            var pawn = WaitingPawns[pawnIndex];
+            pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnIndex), pawnIndex);
+            
+            
+        }
+    }
+    
     private void GameOver()
     {
         Debug.Log("GAME OVER");

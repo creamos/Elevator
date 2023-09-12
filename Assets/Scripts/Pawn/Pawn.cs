@@ -1,19 +1,56 @@
 using System;
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
-[Serializable]
+[RequireComponent(typeof(PawnMovementInQueueBehaviour))]
 public class Pawn : MonoBehaviour
 {
-    public int Destination;
-    public bool IsInElevator;
+    public UnityEvent Spawned, EnteredElevator, FellFromElevator, ExitedElevator;
+    public UnityEvent ReadyToEnterElevator;
+
+    [NonSerialized] public PawnMovementInQueueBehaviour MovementInQueueBehaviour;
+    
+    [field: SerializeField, ReadOnly] public int Destination { get; private set; }
+    [field: SerializeField, ReadOnly] public bool IsInElevator { get; private set; }
 
     [SerializeField] private DestinationBubble destinationBubble;
+
+    private void Awake()
+    {
+        MovementInQueueBehaviour = GetComponent<PawnMovementInQueueBehaviour>();
+        MovementInQueueBehaviour.OnWaitingPosReached.RemoveListener(OnWaitingPosReached);
+        MovementInQueueBehaviour.OnWaitingPosReached.AddListener(OnWaitingPosReached);
+
+        MovementInQueueBehaviour.OnReadyToEnterElevator -= OnReadyToEnterElevator;
+        MovementInQueueBehaviour.OnReadyToEnterElevator += OnReadyToEnterElevator;
+    }
+
+    private void OnDestroy()
+    {
+        MovementInQueueBehaviour?.OnWaitingPosReached.RemoveListener(OnWaitingPosReached);
+        MovementInQueueBehaviour.OnReadyToEnterElevator -= OnReadyToEnterElevator;
+    }
 
     public void Init(int destination)
     {
         Destination = destination;
         destinationBubble.Init(destination);
+        
+        Spawned?.Invoke();
+    }
+    
+
+    private void OnWaitingPosReached()
+    {
+        
+    }
+
+    private void OnReadyToEnterElevator()
+    {
+        ReadyToEnterElevator?.Invoke();
+        ShowDestinationBubble();
     }
 
     /// <summary>
@@ -22,6 +59,9 @@ public class Pawn : MonoBehaviour
     public void GetInElevator()
     {
         IsInElevator = true;
+        MovementInQueueBehaviour.Stop();
+        EnteredElevator?.Invoke();
+        
         StartCoroutine(JumpInElevator());
     }
 
@@ -31,10 +71,12 @@ public class Pawn : MonoBehaviour
     public void Release()
     {
         IsInElevator = false;
+        ExitedElevator?.Invoke();
+        
         StartCoroutine(JumpOutElevator());
     }
 
-    public void ShowDestinationBubble()
+    private void ShowDestinationBubble()
     {
         destinationBubble.Show();
     }

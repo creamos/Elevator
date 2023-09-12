@@ -226,6 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580536369068093232}
   - component: {fileID: 7783054789600289817}
+  - component: {fileID: 2404814147641011656}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -262,9 +263,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6716ed304044c7b393e12a73277574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: 0
-  IsInElevator: 0
+  Spawned:
+    m_PersistentCalls:
+      m_Calls: []
+  EnteredElevator:
+    m_PersistentCalls:
+      m_Calls: []
+  FellFromElevator:
+    m_PersistentCalls:
+      m_Calls: []
+  ExitedElevator:
+    m_PersistentCalls:
+      m_Calls: []
+  ReadyToEnterElevator:
+    m_PersistentCalls:
+      m_Calls: []
+  <Destination>k__BackingField: 0
+  <IsInElevator>k__BackingField: 0
   destinationBubble: {fileID: 1925197047574103441}
+--- !u!114 &2404814147641011656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580536369068093235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd8e1e2be9c4a5080bb970811cd4c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnWaitingPosReached:
+    m_PersistentCalls:
+      m_Calls: []
+  walkSpeed: 2
+  <WaitingPosReached>k__BackingField: 0
 --- !u!1 &1580536369709278084
 GameObject:
   m_ObjectHideFlags: 0
