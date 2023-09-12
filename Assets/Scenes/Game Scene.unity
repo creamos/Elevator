@@ -834,6 +834,7 @@ MonoBehaviour:
   floorManager: {fileID: 1258989913}
   <GroundHeightTarget>k__BackingField: {fileID: 1108017132}
   <SeatTarget>k__BackingField: {fileID: 146653159}
+  <OnPickupCooldown>k__BackingField: 0
   <IsAtFloorLevel>k__BackingField: 0
   <FloorLevel>k__BackingField: 0
   floorDistanceThreshold: 0.5
@@ -849,7 +850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9b8791f3f646d0ace3ee07bd61a852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floors: {fileID: 1258989913}
   MaxPawns: 2
   Passenger: {fileID: 0}
 --- !u!1 &2030134010

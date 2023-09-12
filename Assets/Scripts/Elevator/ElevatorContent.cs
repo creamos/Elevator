@@ -1,18 +1,19 @@
-using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 [RequireComponent(typeof(ElevatorInfo))]
 public class ElevatorContent : MonoBehaviour
 {
-    [SerializeField] private FloorManager floors;
+    private FloorManager floors;
     private ElevatorInfo elevatorInfo;
 
     public int MaxPawns;
-    public Pawn Passenger;
+    [ReadOnly] public Pawn Passenger;
 
     private void Awake()
     {
         elevatorInfo = GetComponent<ElevatorInfo>();
+        floors = FloorManager.Instance;
     }
 
     private void Update()

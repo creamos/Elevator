@@ -28,13 +28,21 @@ public class Pawn : MonoBehaviour
     public void Release()
     {
         IsInElevator = false;
-        //StartCoroutine(JumpOutElevator());
+        StartCoroutine(JumpOutElevator());
     }
 
     private IEnumerator JumpInElevator()
     {
         yield return JumpTo(ElevatorInfo.Instance.SeatTarget, 1f, 0.5f);
         transform.parent = ElevatorInfo.Instance.transform;
+    }
+
+    private IEnumerator JumpOutElevator()
+    {
+        transform.parent = null;
+        yield return JumpTo(FloorManager.Instance.Floors[Destination].GroundHeightTarget, 1f, 0.5f);
+        yield return JumpTo(FloorManager.Instance.Floors[Destination].ExitTarget, 0f, 0.5f);
+        Destroy(gameObject);
     }
     
     private IEnumerator JumpTo(Transform target, float height, float duration)
@@ -51,9 +59,9 @@ public class Pawn : MonoBehaviour
 
             transform.position = Vector3.Lerp(initialPos, target.position, progress);
             if (progress <= 0.5f)
-                transform.position += Vector3.up * Mathf.SmoothStep(0, 1, progress * 2f);
+                transform.position += Vector3.up * Mathf.SmoothStep(0, height, progress * 2f);
             else
-                transform.position += Vector3.up * Mathf.SmoothStep(1, 0, (progress - 0.5f) * 2f);
+                transform.position += Vector3.up * Mathf.SmoothStep(height, 0, (progress - 0.5f) * 2f);
 
             yield return null;
             

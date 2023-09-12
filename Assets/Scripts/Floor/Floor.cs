@@ -7,7 +7,7 @@ public class Floor : MonoBehaviour
 {
     public int Index;
     public List<Pawn> WaitingPawns;
-    public Transform GroundHeightTarget;
+    public Transform GroundHeightTarget, ExitTarget;
 
     [SerializeField] private Transform spawnPos;
     [SerializeField] private float offset;
@@ -47,6 +47,7 @@ public class Floor : MonoBehaviour
         
         var pawn = WaitingPawns[0];
         WaitingPawns[0] = null;
+        pawnCount--;
         
         for (int i = 1; i < WaitingPawns.Count; ++i)
         {

@@ -1,21 +1,22 @@
 using System;
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ElevatorInfo : MonoBehaviour
 {
-    public static ElevatorInfo Instance;
+    public static ElevatorInfo Instance { get; private set; }
     
     [SerializeField] private FloorManager floorManager;
     
     [field: SerializeField] public Transform GroundHeightTarget { get; private set; }
     [field: SerializeField] public Transform SeatTarget { get; private set; }
     
-    [field: SerializeField] public bool OnPickupCooldown { get; private set; }
-    [field: SerializeField] public bool IsAtFloorLevel { get; private set; }
-    [field: SerializeField] public int FloorLevel { get; private set; }
+    [field: SerializeField, ReadOnly] public bool OnPickupCooldown { get; private set; }
+    [field: SerializeField, ReadOnly] public bool IsAtFloorLevel { get; private set; }
+    [field: SerializeField, ReadOnly] public int FloorLevel { get; private set; }
 
-    [SerializeField, Min(0)] private float floorDistanceThreshold;
+    [SerializeField, Min(0)] private float floorDistanceThreshold = 0.5f;
 
     private Coroutine PickupCooldownRoutine;
 

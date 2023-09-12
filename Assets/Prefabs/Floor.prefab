@@ -32,6 +32,7 @@ Transform:
   - {fileID: 49038357811997586}
   - {fileID: 49038357426894435}
   - {fileID: 1214555252563211286}
+  - {fileID: 6586241866964107547}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,6 +51,7 @@ MonoBehaviour:
   Index: 0
   WaitingPawns: []
   GroundHeightTarget: {fileID: 49038357426894435}
+  ExitTarget: {fileID: 6586241866964107547}
   spawnPos: {fileID: 1214555252563211286}
   offset: 2
   spawnPawnKey: 97
@@ -311,6 +313,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &677496259651169040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6586241866964107547}
+  m_Layer: 0
+  m_Name: ExitPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6586241866964107547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677496259651169040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.98, y: 0.478, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 49038356601374268}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4237627829898590593
 GameObject:
   m_ObjectHideFlags: 0
