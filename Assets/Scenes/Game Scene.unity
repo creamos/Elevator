@@ -199,10 +199,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 345004622408581441, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
-      propertyPath: debugMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345004622408581441, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: serialCommunication
       value: 
       objectReference: {fileID: 687954660}
@@ -220,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1211228234783404660, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1211228234783404660, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: m_LocalPosition.z

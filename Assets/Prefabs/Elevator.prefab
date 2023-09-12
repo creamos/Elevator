@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce177944989e249b6c7cb24d7aa3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 1
-  Acceleration: {x: 0, y: 0, z: 0}
+  sensitivity: 3
+  JoyconRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &1211228234783404619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialCommunication: {fileID: 0}
-  sensitivity: 120
+  sensitivity: 1.5
   sharpness: 3
   upBias: 1
-  downBias: 1.4
+  downBias: 2.86
   debugMode: 0
 --- !u!114 &1211228234783404616
 MonoBehaviour:
