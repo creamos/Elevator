@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 3
+  sharpness: 1
   JoyconRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &1211228234783404619
 MonoBehaviour:
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9b8791f3f646d0ace3ee07bd61a852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPawnDrop: {fileID: 11400000, guid: 5dae0b27949584a4eb79aff82fae3611, type: 2}
   MaxPawns: 2
   Passenger: {fileID: 0}
 --- !u!114 &1211228234783404617

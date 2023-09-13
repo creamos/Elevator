@@ -249,4 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cafe62ba88f4dbd87efc02b7d06081b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPawnDropped: {fileID: 11400000, guid: 5dae0b27949584a4eb79aff82fae3611, type: 2}
+  onGameStarted: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
   scoreTMP: {fileID: 6817580553100606491}
