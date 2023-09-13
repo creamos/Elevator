@@ -29,8 +29,11 @@ public class Pawn : MonoBehaviour
 
     private void OnDestroy()
     {
-        MovementInQueueBehaviour?.OnWaitingPosReached.RemoveListener(OnWaitingPosReached);
-        MovementInQueueBehaviour.OnReadyToEnterElevator -= OnReadyToEnterElevator;
+        if (MovementInQueueBehaviour)
+        {
+            MovementInQueueBehaviour.OnWaitingPosReached.RemoveListener(OnWaitingPosReached);
+            MovementInQueueBehaviour.OnReadyToEnterElevator -= OnReadyToEnterElevator;
+        }
     }
 
     public void Init(int destination)

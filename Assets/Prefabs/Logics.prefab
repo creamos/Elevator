@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ccb5b921f73f543b4097309aa30ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnManager: {fileID: 3916191680894130480}
   <GameStart>k__BackingField: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
   <GameOver>k__BackingField: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
   <GamePause>k__BackingField: {fileID: 11400000, guid: a049418f14301cd41b10bfc3b2235abf, type: 2}
+  <OpenMenuRequest>k__BackingField: {fileID: 11400000, guid: 3e04e9948663b944d88561ec93a369d8, type: 2}
   queueOverflow: {fileID: 11400000, guid: c4e0bffcbce160a45b947366bf940452, type: 2}
+  startGameRequest: {fileID: 11400000, guid: b080f73e25e338c479ee46f38ee5c0e2, type: 2}
+  scoreRecapClosed: {fileID: 11400000, guid: 093261bee0869004fa162213ebc50110, type: 2}
 --- !u!114 &3916191680894130480
 MonoBehaviour:
   m_ObjectHideFlags: 0
