@@ -6,11 +6,14 @@ using UnityEngine.Serialization;
 public class JoyconHandler : MonoBehaviour
 {
     [SerializeField] private float sensitivity = 1f;
+    [SerializeField] private float sharpness = 1f;
     
     private JoyconManager joyconManager;
     private Joycon joycon;
 
     public Vector3 JoyconRotation = Vector3.zero;
+    private Vector3 targetJoyconRotation = Vector3.zero;
+    
 
     private void Awake()
     {
@@ -37,7 +40,9 @@ public class JoyconHandler : MonoBehaviour
             }
         }
 
-        JoyconRotation = joycon.GetGyro() * sensitivity;
+        targetJoyconRotation = joycon.GetGyro() * sensitivity;
+        JoyconRotation = Vector3.Slerp(JoyconRotation, targetJoyconRotation, Time.deltaTime * sharpness);
+        Debug.Log((targetJoyconRotation - JoyconRotation).magnitude);
         
         if (Input.GetKeyDown(KeyCode.Space))
             joycon.Recenter();
