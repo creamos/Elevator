@@ -1,6 +1,8 @@
 using System;
 using NaughtyAttributes;
+using Score;
 using ScriptableEvents;
+using TMPro;
 using UnityEngine;
 
 public class GameOverMenu : MonoBehaviour
@@ -11,10 +13,13 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField, BoxGroup("Listened Events")]
     private GameEvent gameOver;
 
+    [SerializeField] private ScoreUI scoreUI;
+
     [SerializeField] private JoyconHandler joyconHandler;
     [SerializeField] private KeyCode exitKey;
 
     [SerializeField] private Canvas canvas;
+    [SerializeField] private TMP_Text scoreLabel;
 
     private bool inMenu;
     
@@ -52,6 +57,7 @@ public class GameOverMenu : MonoBehaviour
     private void Show()
     {
         inMenu = true;
+        if (scoreUI && scoreLabel) scoreLabel.text = scoreUI.GetScore().ToString();
         canvas.gameObject.SetActive(true);
     }
 
