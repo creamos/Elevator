@@ -3,7 +3,17 @@ guid: abdf4de95832b6f44ae97c06cae1e07f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Demons
+    second: {fileID: 2100000, guid: 4826878ef6a3bee458563197b8dcf48a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carton
+    second: {fileID: 2100000, guid: 387fe4c3cd3434a4880c9bd354f67a5d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
