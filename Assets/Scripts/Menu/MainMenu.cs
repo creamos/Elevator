@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading.Tasks;
 using NaughtyAttributes;
 using ScriptableEvents;
 using UnityEngine;
@@ -16,6 +18,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Canvas canvas;
 
     private bool inMenu;
+    private bool inputsEnabled;
+
+    private Coroutine inputEnablingRoutine;
 
     private void OnEnable()
     {
@@ -51,7 +56,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnStartKeyPressed()
     {
-        if (inMenu) 
+        if (inMenu && inputsEnabled) 
             StartGameRequest.Raise();
     }
 
@@ -59,11 +64,36 @@ public class MainMenu : MonoBehaviour
     {
         inMenu = true;
         canvas.gameObject.SetActive(true);
+
+        EnableInputs(1f);
     }
 
     private void Hide()
     {
         inMenu = false;
         canvas.gameObject.SetActive(false);
+
+        DisableInputs();
+    }
+
+    private void EnableInputs(float delay)
+    {
+        inputEnablingRoutine = StartCoroutine(Routine(delay));
+        
+        IEnumerator Routine(float t)
+        {
+            yield return new WaitForSeconds(t);
+            inputsEnabled = true;
+            inputEnablingRoutine = null;
+        }
+    }
+
+    private void DisableInputs()
+    {
+        inputsEnabled = false;
+        
+        if (inputEnablingRoutine == null) return;
+        StopCoroutine(inputEnablingRoutine);
+        inputEnablingRoutine = null;
     }
 }

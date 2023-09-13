@@ -135,10 +135,11 @@ public class Pawn : MonoBehaviour
         var rb = gameObject.AddComponent<Rigidbody>();
 
         col.isTrigger = false;
+        col.center = new Vector3(0, .5f, 0);
         rb.isKinematic = false;
         rb.useGravity = true;
         
-        rb.AddForce(Vector3.back * 10);
+        rb.AddForce(Vector3.back * 10, ForceMode.Force);
     }
 
     private void ShowDestinationBubble()

@@ -70,25 +70,26 @@ public class Floor : MonoBehaviour
         }
     }
 
-    public void SpawnPawn()
+    public bool TrySpawnPawn()
     {
         if (pawnCount == WaitingPawns.Count)
-            Overflow();
-
-        else
         {
-            var pawn = Instantiate(pawnPrefab, spawnPos.position, Quaternion.identity);
-
-            int destination = Random.Range(0, floorCount-1);
-            if (destination >= Index) destination++;
-            pawn.Init(destination, Index);
-            
-            WaitingPawns[pawnCount] = pawn;
-            pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
-            
-            pawnCount += 1;
-            
+            Overflow();
+            return false;
         }
+
+        var pawn = Instantiate(pawnPrefab, spawnPos.position, Quaternion.identity);
+
+        int destination = Random.Range(0, floorCount-1);
+        if (destination >= Index) destination++;
+        pawn.Init(destination, Index);
+            
+        WaitingPawns[pawnCount] = pawn;
+        pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
+            
+        pawnCount += 1;
+
+        return true;
     }
 
     private void MovePawns()
