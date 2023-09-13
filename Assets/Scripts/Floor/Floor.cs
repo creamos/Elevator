@@ -81,7 +81,7 @@ public class Floor : MonoBehaviour
 
             int destination = Random.Range(0, floorCount-1);
             if (destination >= Index) destination++;
-            pawn.Init(destination);
+            pawn.Init(destination, Index);
             
             WaitingPawns[pawnCount] = pawn;
             pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
@@ -106,5 +106,12 @@ public class Floor : MonoBehaviour
     {
         Debug.Log($"Queue of floor {Index} is overflowing!");
         QueueOverflow.Raise();
+    }
+
+    public void ResetFloor()
+    {
+        for (int i = 0; i < WaitingPawns.Count; i++)
+            WaitingPawns[i] = null;
+        pawnCount = 0;
     }
 }
