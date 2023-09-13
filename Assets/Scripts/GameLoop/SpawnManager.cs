@@ -15,8 +15,12 @@ public class SpawnManager : MonoBehaviour
     private Coroutine spawnRoutine;
     private float startTime, lastSpawnTime, nextSpawnTime;
 
-    [SerializeField, CurveRange(0,0, 3, 5)] private AnimationCurve spawnRateOverTime;
-    [SerializeField, CurveRange(0,0, 3, 15)] private AnimationCurve spawnDelayOverTime;
+    [SerializeField, Expandable] private DifficultyProgressionSettings difficultyProgressSettings;
+    
+    [BoxGroup("NOT USED ANYMORE")][SerializeField, CurveRange(0,0, 3, 5)]
+    private AnimationCurve spawnRateOverTime;
+    [BoxGroup("NOT USED ANYMORE")][SerializeField, CurveRange(0,0, 3, 15)] 
+    private AnimationCurve spawnDelayOverTime;
 
     private int[] floorIDs;
 
@@ -82,7 +86,7 @@ public class SpawnManager : MonoBehaviour
         {
             float inGameTime = Time.time - startTime;
             
-            int spawnCount = Mathf.RoundToInt(spawnRateOverTime.Evaluate(inGameTime/60.0f));
+            int spawnCount = Mathf.RoundToInt(difficultyProgressSettings.SpawnRateOverTime.Evaluate(inGameTime/60.0f));
 
             // in case multiple pawns are spawned, avoid putting them on the same one
             List<int> availableFloors = new List<int>(floorIDs);   
@@ -91,7 +95,7 @@ public class SpawnManager : MonoBehaviour
                 SpawnPawn(ref availableFloors);
             
             lastSpawnTime = nextSpawnTime;
-            float delay = spawnDelayOverTime.Evaluate(inGameTime / 60.0f);
+            float delay = difficultyProgressSettings.SpawnDelayOverTime.Evaluate(inGameTime / 60.0f);
             nextSpawnTime = lastSpawnTime + delay;
             
             Debug.Log($"Spawning {spawnCount} pawn, next spawn in: {delay} sec...");
