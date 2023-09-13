@@ -1,10 +1,21 @@
+using System;
 using System.Collections.Generic;
+using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Floor : MonoBehaviour
 {
+    [field: SerializeField, BoxGroup("Raised Events")]
+    public GameEvent QueueOverflow;
+
+    public event Action Initialized;
+    
     public int Index;
+    public int DisplayIndex => GetDisplayIndex(Index);
+    public static int GetDisplayIndex(int index) => index;
+    
     public List<Pawn> WaitingPawns;
     public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;
 
@@ -28,6 +39,8 @@ public class Floor : MonoBehaviour
         WaitingPawns = new List<Pawn>(maxPawns);
         for (int i = 0; i < maxPawns; ++i)
             WaitingPawns.Add(null);
+        
+        Initialized?.Invoke();
     }
 
     public Pawn TryPickup()
@@ -60,7 +73,7 @@ public class Floor : MonoBehaviour
     public void SpawnPawn()
     {
         if (pawnCount == WaitingPawns.Count)
-            GameOver();
+            Overflow();
 
         else
         {
@@ -89,8 +102,9 @@ public class Floor : MonoBehaviour
         }
     }
     
-    private void GameOver()
+    private void Overflow()
     {
-        Debug.Log("GAME OVER");
+        Debug.Log($"Queue of floor {Index} is overflowing!");
+        QueueOverflow.Raise();
     }
 }

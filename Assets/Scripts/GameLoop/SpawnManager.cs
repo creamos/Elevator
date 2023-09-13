@@ -1,11 +1,16 @@
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField, BoxGroup("Listened Events")]
+    private GameEvent gameStarted, gameOver;
+    
     [field: ShowNonSerializedField] public bool IsRunning { get; private set; }
     private Coroutine spawnRoutine;
     private float startTime, lastSpawnTime, nextSpawnTime;
@@ -14,6 +19,42 @@ public class SpawnManager : MonoBehaviour
     [SerializeField, CurveRange(0,0, 3, 15)] private AnimationCurve spawnDelayOverTime;
 
     private int[] floorIDs;
+
+
+    [SerializeField, Header("DEBUG")] private bool infiniteSpawn;
+
+    private void OnEnable()
+    {
+        if (gameStarted)
+        {
+            gameStarted.OnTriggered -= OnGameStarted;
+            gameStarted.OnTriggered += OnGameStarted;
+        }
+
+        if (gameOver)
+        {
+            gameOver.OnTriggered -= OnGameOver;
+            gameOver.OnTriggered += OnGameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (gameStarted) gameStarted.OnTriggered -= OnGameStarted;
+        if (gameOver) gameOver.OnTriggered -= OnGameOver;
+    }
+
+    private void OnGameStarted()
+    {
+        StartSpawnLoop();
+    }
+
+    private void OnGameOver()
+    {
+        if (infiniteSpawn) return;
+        
+        StopSpawnLoop();
+    }
 
     private void Start()
     {

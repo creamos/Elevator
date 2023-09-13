@@ -1,3 +1,17 @@
 fileFormatVersion: 2
 guid: f41f8339f61745e590745f67e9684d69
-timeCreated: 1694436388
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - QueueOverflow: {fileID: 11400000, guid: c4e0bffcbce160a45b947366bf940452, type: 2}
+  - GroundHeightTarget: {instanceID: 0}
+  - ExitElevatorTarget: {instanceID: 0}
+  - ExitFloorTarget: {instanceID: 0}
+  - waitingPos: {instanceID: 0}
+  - spawnPos: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

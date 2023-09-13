@@ -12,7 +12,7 @@ public class DestinationBubble : MonoBehaviour
     public void Init(int destination)
     {
         Hide();
-        contentText.text = (-destination-1).ToString();
+        contentText.text = Floor.GetDisplayIndex(destination).ToString();
     }
 
     public void Hide()
