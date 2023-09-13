@@ -1,10 +1,13 @@
 using System;
 using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 
 [RequireComponent(typeof(ElevatorInfo))]
 public class ElevatorContent : MonoBehaviour
 {
+    [SerializeField] private GameEvent onPawnDrop;
+    
     private FloorManager floors;
     private ElevatorInfo elevatorInfo;
 
@@ -65,6 +68,8 @@ public class ElevatorContent : MonoBehaviour
     {
         Passenger.Release();
         Passenger = null;
+        
+        onPawnDrop.Raise();
         // Do additional things when a pawn is successfully removed from the elevator
         
     }
