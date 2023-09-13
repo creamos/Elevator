@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6716ed304044c7b393e12a73277574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
   Spawned:
     m_PersistentCalls:
       m_Calls: []
@@ -279,7 +280,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   <Destination>k__BackingField: 0
+  <CurrentFloor>k__BackingField: 0
   <IsInElevator>k__BackingField: 0
+  <IsWaitingElevator>k__BackingField: 0
   destinationBubble: {fileID: 1925197047574103441}
 --- !u!114 &2404814147641011656
 MonoBehaviour:
