@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1211228234783404660, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1211228234783404660, guid: 279212a3a9f266d428bf67cb6a6a8587, type: 3}
       propertyPath: m_LocalPosition.z
@@ -547,6 +547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e04ed6189ca9b43a71b32ef4ac03fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStarted: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
+  gameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
   spawnRateOverTime:
     serializedVersion: 2
     m_Curve:
@@ -594,7 +596,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 10
+      value: 7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -604,11 +606,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.9
       value: 5
-      inSlope: -8.666236
-      outSlope: -8.666236
+      inSlope: -6.4143963
+      outSlope: -6.4143963
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.16450755
+      inWeight: 0.18938449
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.99
@@ -667,6 +669,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  infiniteSpawn: 0
 --- !u!4 &1897893026
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +698,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 1897893025}
+  <GameStart>k__BackingField: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
+  <GameOver>k__BackingField: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
+  <GamePause>k__BackingField: {fileID: 11400000, guid: a049418f14301cd41b10bfc3b2235abf, type: 2}
+  queueOverflow: {fileID: 11400000, guid: c4e0bffcbce160a45b947366bf940452, type: 2}
 --- !u!1001 &7171628725508392394
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 345004622408581441}
   - component: {fileID: 1211228234783404616}
   - component: {fileID: 1211228234783404617}
+  - component: {fileID: 8713190702987360948}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -131,6 +132,21 @@ MonoBehaviour:
   <IsAtFloorLevel>k__BackingField: 0
   <FloorLevel>k__BackingField: 0
   floorDistanceThreshold: 0.5
+--- !u!114 &8713190702987360948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211228234783404663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3189ff9df00e22d48bafab6a833fb12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetKey: 32
+  teleportReset: 0
+  resetHeight: 0
 --- !u!1 &1211228235099429201
 GameObject:
   m_ObjectHideFlags: 0
