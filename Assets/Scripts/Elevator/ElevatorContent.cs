@@ -14,6 +14,9 @@ public class ElevatorContent : MonoBehaviour
     [SerializeField, BoxGroup("Raised Events")]
     private PawnEvent onPawnDrop;
     
+    [SerializeField, BoxGroup("Raised Events")]
+    private PawnEvent onPawnPickup;
+    
     private FloorManager floors;
     private ElevatorInfo elevatorInfo;
 
@@ -78,6 +81,7 @@ public class ElevatorContent : MonoBehaviour
             Passenger = pawn;
             pawn.GetInElevator();
 
+            onPawnPickup.Raise(pawn);
             // Do additional things when a pawn is successfully added to the elevator
         }
         else
