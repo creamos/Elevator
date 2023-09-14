@@ -560,6 +560,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3916191680894130480, guid: b32f38b36dfea9146bb630227f305f94, type: 3}
+      propertyPath: difficultyProgressSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: ef73178a0f8981d4bbd5c53be91783bf, type: 2}
     - target: {fileID: 3916191680894130481, guid: b32f38b36dfea9146bb630227f305f94, type: 3}
       propertyPath: m_Name
       value: Logics
@@ -731,6 +735,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221701915690144623, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 354446088640879883, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b89400bd58622da44823a7b2299141a7, type: 3}
     - target: {fileID: 4444197266253365006, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
       propertyPath: joyconHandler
       value: 
@@ -738,6 +750,10 @@ PrefabInstance:
     - target: {fileID: 5652926490723244424, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652926490723244424, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6148086162634468126, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
       propertyPath: joyconHandler
@@ -786,6 +802,26 @@ PrefabInstance:
     - target: {fileID: 7558484628895372946, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561814406595539370, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781652993743400580, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1261.8789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781652993743400580, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 880.1341
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781652993743400580, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781652993743400580, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 289
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4add71e25a41d4b8f544a02dc14b9f, type: 3}
