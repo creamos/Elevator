@@ -78,7 +78,12 @@ public class Pawn : MonoBehaviour
         
         Spawned?.Invoke();
     }
-    
+
+    private void Update()
+    {
+        if (transform.position.y < -20f && !IsInElevator) Destroy(gameObject);
+    }
+
 
     private void OnWaitingPosReached()
     {
@@ -131,7 +136,12 @@ public class Pawn : MonoBehaviour
     [Button]
     public void FallFromElevator()
     {
-        transform.parent = null;
+        IsInElevator = false;
+        var cachedTransform = transform;
+        
+        cachedTransform.parent = null;
+
+        cachedTransform.position += Vector3.back * 2;
         
         var col = gameObject.AddComponent<SphereCollider>();
         var rb = gameObject.AddComponent<Rigidbody>();
@@ -140,8 +150,14 @@ public class Pawn : MonoBehaviour
         col.center = new Vector3(0, .5f, 0);
         rb.isKinematic = false;
         rb.useGravity = true;
+
+        StartCoroutine(DelayedAddForce());
         
-        rb.AddForce(Vector3.back * 10, ForceMode.Force);
+        IEnumerator DelayedAddForce()
+        {
+            yield return null;
+            rb.AddForce(Vector3.back * 10, ForceMode.Impulse);
+        }
     }
 
     private void ShowDestinationBubble()

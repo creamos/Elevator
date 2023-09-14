@@ -49,7 +49,7 @@ public class ElevatorHeightReset : MonoBehaviour
             else
             {
                 resetRoutine = StartCoroutine(ResyncHeightCrt());
-
+                
                 IEnumerator ResyncHeightCrt()
                 {
                     float startTime = Time.time;
@@ -58,13 +58,16 @@ public class ElevatorHeightReset : MonoBehaviour
 
                     Vector3 initialPos = transform.position;
                     Vector3 endPos = new Vector3(initialPos.x, resetHeight, initialPos.z);
+                    
+                    Quaternion initialRot = transform.rotation;
+                    Quaternion endRot = Quaternion.identity;
 
                     do
                     {
                         progress = Mathf.Clamp01((Time.time - startTime) / duration);
                         transform.position = Vector3.Lerp(initialPos, endPos, progress);
+                        transform.rotation = Quaternion.Lerp(initialRot, endRot, progress);
                         yield return null;
-                
                     } while (progress < 1);
 
                     resetRoutine = null;

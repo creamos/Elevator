@@ -8,6 +8,9 @@ public class ElevatorContent : MonoBehaviour
     [SerializeField, BoxGroup("Listened Events")]
     private GameEvent gameOver;
     
+    [SerializeField, BoxGroup("Listened Events")]
+    private GameEvent overSwing;
+    
     [SerializeField, BoxGroup("Raised Events")]
     private GameEvent onPawnFall;
     
@@ -27,6 +30,12 @@ public class ElevatorContent : MonoBehaviour
             gameOver.OnTriggered -= OnGameOver;
             gameOver.OnTriggered += OnGameOver;
         }
+
+        if (overSwing)
+        {
+            overSwing.OnTriggered -= OnOverSwing;
+            overSwing.OnTriggered += OnOverSwing;
+        }
     }
 
     private void OnDisable()
@@ -34,6 +43,8 @@ public class ElevatorContent : MonoBehaviour
         
         if (gameOver)
             gameOver.OnTriggered -= OnGameOver;
+        if (overSwing)
+            overSwing.OnTriggered -= OnOverSwing;
     }
 
     private void Awake()
@@ -105,6 +116,11 @@ public class ElevatorContent : MonoBehaviour
         Passenger = null;
 
         onPawnFall.Raise();
+    }
+
+    private void OnOverSwing()
+    {
+        DropPassenger();
     }
 
     private void OnGameOver()

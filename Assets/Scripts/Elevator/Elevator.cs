@@ -1,7 +1,5 @@
-using System;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Elevator : MonoBehaviour
 {
@@ -17,6 +15,8 @@ public class Elevator : MonoBehaviour
         if (!isReadingInput) return;
         
         transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.CurrentAcceleration);
-        transform.rotation = Quaternion.Euler(joyconHandler.JoyconRotation);
+        
+        //transform.rotation = Quaternion.Euler(joyconHandler.JoyconRotation);
+        transform.rotation = joyconHandler.JoyconRotation;
     }
 }

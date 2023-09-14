@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8713190702987360948}
   - component: {fileID: 8129661290601473510}
   - component: {fileID: 4918998303364142659}
+  - component: {fileID: 6404692852300084358}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -67,9 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce177944989e249b6c7cb24d7aa3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 3
-  sharpness: 1
-  JoyconRotation: {x: 0, y: 0, z: 0}
+  sensitivity: 0.3
+  sharpness: 50
+  JoyconRotation: {x: 0, y: 0, z: 0, w: 0}
+  invertY: 1
+  invertZ: 1
 --- !u!114 &1211228234783404619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
+  overSwing: {fileID: 11400000, guid: 3b2637e33aefbd6479f2314e4ea9e320, type: 2}
   onPawnFall: {fileID: 11400000, guid: 6a11ab044f09bfd4e85202ae8e9d58ba, type: 2}
   onPawnDrop: {fileID: 11400000, guid: 5dae0b27949584a4eb79aff82fae3611, type: 2}
   Passenger: {fileID: 0}
@@ -184,6 +188,21 @@ MonoBehaviour:
   <ResetElevatorRequest>k__BackingField: {fileID: 11400000, guid: b053af691ce23e247b0af9c83b359256, type: 2}
   GameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
   elevator: {fileID: 1211228234783404619}
+--- !u!114 &6404692852300084358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211228234783404663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9274fbb0c8549eda58f7986a1bc812e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OverSwinging>k__BackingField: {fileID: 11400000, guid: 3b2637e33aefbd6479f2314e4ea9e320, type: 2}
+  swingLimit: 45
+  cooldown: 1
 --- !u!1 &1211228235099429201
 GameObject:
   m_ObjectHideFlags: 0
