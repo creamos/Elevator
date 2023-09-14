@@ -188,7 +188,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   defaultPawns:
-  - {fileID: 7783054789600289817, guid: 13d5cb8cbacb9e4469ea7e16f2611d41, type: 3}
+  - {fileID: 954868349966783129, guid: 1542879686969274f90000d78c99ebb0, type: 3}
   bonusPawns:
   - {fileID: 7783054789600289817, guid: 1480e8dd67072ac4388b2904ce955619, type: 3}
   bonusPawnSpawnChance: 0.1

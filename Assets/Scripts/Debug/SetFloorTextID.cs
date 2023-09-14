@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SetFloorTextID : MonoBehaviour
 {
     [SerializeField] private Floor floor;
-    [SerializeField] private Text text;
+    [SerializeField] private TextMeshPro text;
 
     private void OnEnable()
     {
