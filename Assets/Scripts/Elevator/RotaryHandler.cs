@@ -18,6 +18,12 @@ public class RotaryHandler : MonoBehaviour
 
     public float CurrentAcceleration => currentAcceleration;
 
+    public float Sensitivity
+    {
+        get => sensitivity;
+        set => sensitivity = value;
+    }
+
     void Update()
     {
         

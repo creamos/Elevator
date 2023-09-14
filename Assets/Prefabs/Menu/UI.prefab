@@ -41,9 +41,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7558484628895372946}
     m_Modifications:
+    - target: {fileID: 993870647973717269, guid: cee14396cef5fa94da32e705f591996f, type: 3}
+      propertyPath: m_text
+      value: Sensitivity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765920937729519549, guid: cee14396cef5fa94da32e705f591996f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 388.5607
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125123742206522414, guid: cee14396cef5fa94da32e705f591996f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 503.4875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7773500335901458448, guid: cee14396cef5fa94da32e705f591996f, type: 3}
+      propertyPath: m_Name
+      value: OptionButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8405038960749622706, guid: cee14396cef5fa94da32e705f591996f, type: 3}
       propertyPath: m_Name
-      value: Main Menu Canvas
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 8405038960749622710, guid: cee14396cef5fa94da32e705f591996f, type: 3}
       propertyPath: m_Pivot.x
@@ -129,6 +145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9057137286289531757, guid: cee14396cef5fa94da32e705f591996f, type: 3}
+      propertyPath: m_Name
+      value: OptionName
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee14396cef5fa94da32e705f591996f, type: 3}
 --- !u!4 &8030069779936602696 stripped
@@ -145,7 +165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2394391846389843233, guid: 5fa1035f1e586cd4fa5aa43fae72d06e, type: 3}
       propertyPath: m_Name
-      value: GameOver Menu
+      value: ScoreRecap Menu
       objectReference: {fileID: 0}
     - target: {fileID: 6064168620714620685, guid: 5fa1035f1e586cd4fa5aa43fae72d06e, type: 3}
       propertyPath: m_RootOrder

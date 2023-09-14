@@ -89,10 +89,16 @@ public class SpawnManager : MonoBehaviour
             int spawnCount = Mathf.RoundToInt(difficultyProgressSettings.SpawnRateOverTime.Evaluate(inGameTime/60.0f));
 
             // in case multiple pawns are spawned, avoid putting them on the same one
-            List<int> availableFloors = new List<int>(floorIDs);   
-            
+            List<int> availableFloors = new List<int>(floorIDs);
+
+            bool successfulSpawn = true;
             for (int i = 0; i < spawnCount; ++i)
-                SpawnPawn(ref availableFloors);
+            {
+                successfulSpawn = TrySpawnPawn(ref availableFloors);
+                if (!successfulSpawn) break;
+            }
+            
+            if (!successfulSpawn) return;
             
             lastSpawnTime = nextSpawnTime;
             float delay = difficultyProgressSettings.SpawnDelayOverTime.Evaluate(inGameTime / 60.0f);
@@ -102,12 +108,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void SpawnPawn(ref List<int> availableFloors)
+    private bool TrySpawnPawn(ref List<int> availableFloors)
     {
         int chosenFloor = Random.Range(0, availableFloors.Count);
         int floorID = availableFloors[chosenFloor];
         availableFloors.RemoveAt(chosenFloor);
         
-        FloorManager.Instance.Floors[floorID].SpawnPawn();
+        return FloorManager.Instance.Floors[floorID].TrySpawnPawn();
     }
 }
