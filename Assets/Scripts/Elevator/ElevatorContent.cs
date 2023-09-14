@@ -45,7 +45,7 @@ public class ElevatorContent : MonoBehaviour
 
     private void Update()
     {
-        if (elevatorInfo.IsAtFloorLevel && !elevatorInfo.OnPickupCooldown)
+        if (elevatorInfo.IsAtFloorLevel && !elevatorInfo.OnPickupCooldown && elevatorInfo.IsReadyToPickup)
         {
             Floor floor = floors.Floors[elevatorInfo.FloorLevel];
             if (Passenger == null)
