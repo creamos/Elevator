@@ -14,8 +14,6 @@ public class FloorManager : MonoBehaviour
     public int MaxPawnPerFloor;
     public List<Floor> Floors;
 
-    [SerializeField] private Pawn pawnPrefab;
-
     private void OnEnable()
     {
         if (GameOver)
@@ -40,7 +38,7 @@ public class FloorManager : MonoBehaviour
     {
         for (int i = 0; i < Floors.Count; ++i)
         {
-            Floors[i].Init(i, Floors.Count, MaxPawnPerFloor, pawnPrefab);
+            Floors[i].Init(i, Floors.Count, MaxPawnPerFloor);
         }
     }
 

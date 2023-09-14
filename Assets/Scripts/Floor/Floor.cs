@@ -13,7 +13,7 @@ public class Floor : MonoBehaviour
     public event Action Initialized;
     
     public int Index;
-    public int DisplayIndex => GetDisplayIndex(Index);
+    public int DisplayIndex => GetDisplayIndex(Index)+1;
     public static int GetDisplayIndex(int index) => index;
     
     public List<Pawn> WaitingPawns;
@@ -24,15 +24,13 @@ public class Floor : MonoBehaviour
 
     private int pawnCount;
     private int floorCount;
-    private Pawn pawnPrefab;
 
     public Vector3 GetWaitingPos(int positionInQueue) => offset * positionInQueue * Vector3.left + waitingPos.position;
 
-    public void Init(int index, int floorCount, int maxPawns, Pawn pawnPrefab)
+    public void Init(int index, int floorCount, int maxPawns)
     {
         Index = index;
         this.floorCount = floorCount;
-        this.pawnPrefab = pawnPrefab;
         
         pawnCount = 0;
         
