@@ -1,15 +1,40 @@
-using System;
 using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 
 [RequireComponent(typeof(ElevatorInfo))]
 public class ElevatorContent : MonoBehaviour
 {
+    [SerializeField, BoxGroup("Listened Events")]
+    private GameEvent gameOver;
+    
+    [SerializeField, BoxGroup("Raised Events")]
+    private GameEvent onPawnFall;
+    
+    [SerializeField, BoxGroup("Raised Events")]
+    private PawnEvent onPawnDrop;
+    
     private FloorManager floors;
     private ElevatorInfo elevatorInfo;
 
-    public int MaxPawns;
     [ReadOnly] public Pawn Passenger;
+
+
+    private void OnEnable()
+    {
+        if (gameOver)
+        {
+            gameOver.OnTriggered -= OnGameOver;
+            gameOver.OnTriggered += OnGameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        
+        if (gameOver)
+            gameOver.OnTriggered -= OnGameOver;
+    }
 
     private void Awake()
     {
@@ -23,7 +48,7 @@ public class ElevatorContent : MonoBehaviour
 
     private void Update()
     {
-        if (elevatorInfo.IsAtFloorLevel && !elevatorInfo.OnPickupCooldown)
+        if (elevatorInfo.IsAtFloorLevel && !elevatorInfo.OnPickupCooldown && elevatorInfo.IsReadyToPickup)
         {
             Floor floor = floors.Floors[elevatorInfo.FloorLevel];
             if (Passenger == null)
@@ -46,7 +71,7 @@ public class ElevatorContent : MonoBehaviour
         }
     }
 
-    public void AddPassenger(Pawn pawn)
+    private void AddPassenger(Pawn pawn)
     {
         if (Passenger != pawn)
         {
@@ -61,11 +86,29 @@ public class ElevatorContent : MonoBehaviour
         }
     }
 
-    public void ReleasePassenger()
+    private void ReleasePassenger()
     {
         Passenger.Release();
+        var releasedPassenger = Passenger;
         Passenger = null;
+        
+        onPawnDrop.Raise(releasedPassenger);
         // Do additional things when a pawn is successfully removed from the elevator
         
+    }
+
+    private void DropPassenger()
+    {
+        if (Passenger == null) return;
+        
+        Passenger.FallFromElevator();
+        Passenger = null;
+
+        onPawnFall.Raise();
+    }
+
+    private void OnGameOver()
+    {
+        DropPassenger();
     }
 }

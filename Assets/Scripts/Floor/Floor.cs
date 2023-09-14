@@ -1,10 +1,21 @@
+using System;
 using System.Collections.Generic;
+using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Floor : MonoBehaviour
 {
+    [field: SerializeField, BoxGroup("Raised Events")]
+    public GameEvent QueueOverflow;
+
+    public event Action Initialized;
+    
     public int Index;
+    public int DisplayIndex => GetDisplayIndex(Index);
+    public static int GetDisplayIndex(int index) => index;
+    
     public List<Pawn> WaitingPawns;
     public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;
 
@@ -28,6 +39,8 @@ public class Floor : MonoBehaviour
         WaitingPawns = new List<Pawn>(maxPawns);
         for (int i = 0; i < maxPawns; ++i)
             WaitingPawns.Add(null);
+        
+        Initialized?.Invoke();
     }
 
     public Pawn TryPickup()
@@ -57,25 +70,26 @@ public class Floor : MonoBehaviour
         }
     }
 
-    public void SpawnPawn()
+    public bool TrySpawnPawn(Pawn spawnedPrefab)
     {
         if (pawnCount == WaitingPawns.Count)
-            GameOver();
-
-        else
         {
-            var pawn = Instantiate(pawnPrefab, spawnPos.position, Quaternion.identity);
-
-            int destination = Random.Range(0, floorCount-1);
-            if (destination >= Index) destination++;
-            pawn.Init(destination);
-            
-            WaitingPawns[pawnCount] = pawn;
-            pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
-            
-            pawnCount += 1;
-            
+            Overflow();
+            return false;
         }
+
+        var pawn = Instantiate(spawnedPrefab, spawnPos.position, Quaternion.identity);
+
+        int destination = Random.Range(0, floorCount-1);
+        if (destination >= Index) destination++;
+        pawn.Init(destination, Index);
+            
+        WaitingPawns[pawnCount] = pawn;
+        pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
+            
+        pawnCount += 1;
+
+        return true;
     }
 
     private void MovePawns()
@@ -89,8 +103,16 @@ public class Floor : MonoBehaviour
         }
     }
     
-    private void GameOver()
+    private void Overflow()
     {
-        Debug.Log("GAME OVER");
+        Debug.Log($"Queue of floor {Index} is overflowing!");
+        QueueOverflow.Raise();
+    }
+
+    public void ResetFloor()
+    {
+        for (int i = 0; i < WaitingPawns.Count; i++)
+            WaitingPawns[i] = null;
+        pawnCount = 0;
     }
 }
