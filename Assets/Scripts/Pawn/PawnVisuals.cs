@@ -3,18 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PawnVisuals : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    private Animator animator;
     [SerializeField] private Pawn pawn;
 
+    [SerializeField] private List<GameObject> pawnVisuals;
+    [SerializeField] private Transform visualsParent;
+        
     private bool exitElevator = false; 
     
     private void Start()
     {
         pawn.ExitedElevator.AddListener(OnExitedElevator);
         
+        int randomIndex = Random.Range(0, pawnVisuals.Count);
+
+        for (int i = visualsParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(visualsParent.GetChild(i).gameObject);
+        }
+        
+        Instantiate(pawnVisuals[randomIndex], visualsParent);
+        animator = visualsParent.GetComponentInChildren<Animator>();
     }
 
     void Update()
