@@ -22,6 +22,13 @@ public class SpawnManager : MonoBehaviour
     [BoxGroup("NOT USED ANYMORE")][SerializeField, CurveRange(0,0, 3, 15)] 
     private AnimationCurve spawnDelayOverTime;
 
+    [SerializeField, BoxGroup("PawnSettings")]
+    private Pawn[] defaultPawns;
+    [SerializeField, BoxGroup("PawnSettings")]
+    private Pawn[] bonusPawns;
+    [SerializeField, BoxGroup("PawnSettings")]
+    [Range(0,1)] private float bonusPawnSpawnChance;
+
     private int[] floorIDs;
 
 
@@ -91,10 +98,16 @@ public class SpawnManager : MonoBehaviour
             // in case multiple pawns are spawned, avoid putting them on the same one
             List<int> availableFloors = new List<int>(floorIDs);
 
+            bool spawnBonusPawn = Random.Range(0f, 1f) <= bonusPawnSpawnChance;
+            int bonusPawnFloor = Random.Range(0, spawnCount); 
+            
             bool successfulSpawn = true;
             for (int i = 0; i < spawnCount; ++i)
             {
-                successfulSpawn = TrySpawnPawn(ref availableFloors);
+                Pawn spawnedPrefab = (spawnBonusPawn && bonusPawnFloor == i)
+                    ? bonusPawns[Random.Range(0, bonusPawns.Length)]
+                    : defaultPawns[Random.Range(0, defaultPawns.Length)];
+                successfulSpawn = TrySpawnPawn(ref availableFloors, spawnedPrefab);
                 if (!successfulSpawn) break;
             }
             
@@ -108,12 +121,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private bool TrySpawnPawn(ref List<int> availableFloors)
+    private bool TrySpawnPawn(ref List<int> availableFloors, Pawn spawnedPrefab)
     {
         int chosenFloor = Random.Range(0, availableFloors.Count);
         int floorID = availableFloors[chosenFloor];
         availableFloors.RemoveAt(chosenFloor);
         
-        return FloorManager.Instance.Floors[floorID].TrySpawnPawn();
+        return FloorManager.Instance.Floors[floorID].TrySpawnPawn(spawnedPrefab);
     }
 }

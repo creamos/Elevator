@@ -23,6 +23,8 @@ public class Pawn : MonoBehaviour
 
     [SerializeField] private DestinationBubble destinationBubble;
 
+    public int ScoreValue = 1;
+
     
     private void OnEnable()
     {

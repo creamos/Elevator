@@ -9,7 +9,10 @@ public class ElevatorContent : MonoBehaviour
     private GameEvent gameOver;
     
     [SerializeField, BoxGroup("Raised Events")]
-    private GameEvent onPawnDrop, onPawnFall;
+    private GameEvent onPawnFall;
+    
+    [SerializeField, BoxGroup("Raised Events")]
+    private PawnEvent onPawnDrop;
     
     private FloorManager floors;
     private ElevatorInfo elevatorInfo;
@@ -86,9 +89,10 @@ public class ElevatorContent : MonoBehaviour
     private void ReleasePassenger()
     {
         Passenger.Release();
+        var releasedPassenger = Passenger;
         Passenger = null;
         
-        onPawnDrop.Raise();
+        onPawnDrop.Raise(releasedPassenger);
         // Do additional things when a pawn is successfully removed from the elevator
         
     }
