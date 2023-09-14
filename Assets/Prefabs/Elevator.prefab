@@ -135,6 +135,8 @@ MonoBehaviour:
   <SeatTarget>k__BackingField: {fileID: 1211228236436636748}
   <OnPickupCooldown>k__BackingField: 0
   <IsAtFloorLevel>k__BackingField: 0
+  <IsReadyToPickup>k__BackingField: 0
+  pickupAlignmentDuration: 1
   <FloorLevel>k__BackingField: 0
   floorDistanceThreshold: 0.5
 --- !u!114 &8713190702987360948

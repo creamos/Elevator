@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using NaughtyAttributes;
 using UnityEngine;
@@ -14,6 +13,9 @@ public class ElevatorInfo : MonoBehaviour
     
     [field: SerializeField, ReadOnly] public bool OnPickupCooldown { get; private set; }
     [field: SerializeField, ReadOnly] public bool IsAtFloorLevel { get; private set; }
+    [field: SerializeField, ReadOnly] public bool IsReadyToPickup { get; private set; }
+    [SerializeField] private float pickupAlignmentDuration;
+    private float alignmentElapsedTime;
     [field: SerializeField, ReadOnly] public int FloorLevel { get; private set; }
 
     [SerializeField, Min(0)] private float floorDistanceThreshold = 0.5f;
@@ -41,11 +43,23 @@ public class ElevatorInfo : MonoBehaviour
             float distanceToFloor = Mathf.Abs(floor.GroundHeightTarget.position.y - GroundHeightTarget.position.y);
             if (distanceToFloor < floorDistanceThreshold)
             {
+                alignmentElapsedTime += Time.deltaTime;
+                alignmentElapsedTime = Mathf.Clamp(alignmentElapsedTime,  0, pickupAlignmentDuration);
+
                 IsAtFloorLevel = true;
                 FloorLevel = floor.Index;
+
                 break;
             }
         }
+
+        if (!IsAtFloorLevel)
+        {
+            alignmentElapsedTime -= Time.deltaTime * 2f;
+            alignmentElapsedTime = Mathf.Clamp(alignmentElapsedTime,  0, pickupAlignmentDuration);
+        }
+        
+        IsReadyToPickup = alignmentElapsedTime >= pickupAlignmentDuration;
     }
 
     public void SetPickupCooldown(float cooldownDuration)
