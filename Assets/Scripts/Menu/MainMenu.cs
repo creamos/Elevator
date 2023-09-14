@@ -71,7 +71,6 @@ public class MainMenu : MonoBehaviour
     private void Hide()
     {
         inMenu = false;
-        canvas.gameObject.SetActive(false);
 
         DisableInputs();
     }
