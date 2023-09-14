@@ -16,7 +16,7 @@ namespace Audio
 
         private void Start()
         {
-            if (playSoundEvent)
+            if (playSoundEvent != null)
             {
                 playSoundEvent.OnTriggered += PlaySound;
             }
@@ -24,6 +24,7 @@ namespace Audio
 
         public void PlaySound()
         {
+            Debug.Log("Play sound " + gameObject.name);
             FMODUnity.RuntimeManager.PlayOneShot(soundRef);
         }
     }
