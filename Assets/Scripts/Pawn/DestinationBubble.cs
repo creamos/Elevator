@@ -1,10 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DestinationBubble : MonoBehaviour
 {
-    [SerializeField] private Text contentText;
+    [SerializeField] private TextMeshProUGUI contentText;
 
     [SerializeField] private AnimationCurve showScalingCurve;
     [SerializeField] private float showScalingDuration;
