@@ -1,4 +1,5 @@
-﻿using ScriptableEvents;
+﻿using System;
+using ScriptableEvents;
 using TMPro;
 using UnityEngine;
 
@@ -41,6 +42,11 @@ namespace Score
             if (onPawnDropped) onPawnDropped.OnTriggeredVariant -= AddScore;
             if (onGameStarted) onGameStarted.OnTriggered -= OnGameStarted;
             if (onGameOver) onGameOver.OnTriggered -= OnGameOver;
+        }
+
+        private void Start()
+        {
+            Hide();
         }
 
         private void OnGameStarted()

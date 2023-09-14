@@ -70,7 +70,7 @@ public class Floor : MonoBehaviour
         }
     }
 
-    public bool TrySpawnPawn()
+    public bool TrySpawnPawn(Pawn spawnedPrefab)
     {
         if (pawnCount == WaitingPawns.Count)
         {
@@ -78,7 +78,7 @@ public class Floor : MonoBehaviour
             return false;
         }
 
-        var pawn = Instantiate(pawnPrefab, spawnPos.position, Quaternion.identity);
+        var pawn = Instantiate(spawnedPrefab, spawnPos.position, Quaternion.identity);
 
         int destination = Random.Range(0, floorCount-1);
         if (destination >= Index) destination++;
