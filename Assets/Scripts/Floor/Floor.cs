@@ -13,8 +13,8 @@ public class Floor : MonoBehaviour
     public event Action Initialized;
     
     public int Index;
-    public int DisplayIndex => GetDisplayIndex(Index)+1;
-    public static int GetDisplayIndex(int index) => index;
+    public int DisplayIndex => GetDisplayIndex(Index);
+    public static int GetDisplayIndex(int index) => index + 1;
     
     public List<Pawn> WaitingPawns;
     public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;

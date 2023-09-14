@@ -15,7 +15,7 @@ public class Elevator : MonoBehaviour
     {
         if (!isReadingInput) return;
         
-        PivotPoint.position += Vector3.up * (Time.deltaTime * rotaryHandler.CurrentAcceleration);
+        transform.position += Vector3.up * (Time.deltaTime * rotaryHandler.CurrentAcceleration);
         
         //transform.rotation = Quaternion.Euler(joyconHandler.JoyconRotation);
         PivotPoint.rotation = joyconHandler.JoyconRotation;

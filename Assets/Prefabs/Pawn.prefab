@@ -94,7 +94,19 @@ MonoBehaviour:
       m_Calls: []
   ReadyToEnterElevator:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 94edca6e554d67b45b6686e271d560fe, type: 2}
+        m_TargetAssemblyTypeName: ScriptableEvents.GameEvent, lacreamosa.scriptable-events
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <Destination>k__BackingField: 0
   <CurrentFloor>k__BackingField: 0
   <IsInElevator>k__BackingField: 0
