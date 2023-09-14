@@ -1,5 +1,6 @@
 using System;
 using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -14,11 +15,13 @@ public class PawnMovementInQueueBehaviour : MonoBehaviour
 
     [field: ShowNonSerializedField, ReadOnly]
     private bool isReachingWaitingPos;
-    
+
+    public bool IsReachingWaitingPos => isReachingWaitingPos;
+
     private Vector3 waitingSlot;
     private int waitingSlotID;
-    
-    
+
+
     public void SetWaitingSlot(Vector3 newWaitingSlot, int slotID)
     {
         waitingSlot = newWaitingSlot;

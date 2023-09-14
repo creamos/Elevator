@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55162f93283948708be674e8b855f07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
   MaxPawnPerFloor: 3
   Floors:
   - {fileID: 7171628726410607055}
