@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129506585716901666}
-  - component: {fileID: 6738558899552742879}
+  - component: {fileID: 6490538375841912175}
   m_Layer: 0
   m_Name: Pawn Get In
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 7266679300873219564}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6738558899552742879
+--- !u!114 &6490538375841912175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
       Data3: 1750247871
       Data4: 1952844504
     Path: event:/Demon_getin
-  playSoundEvent: {fileID: 11400000, guid: 7fb5b8be311e5f240861ef9535e9f93f, type: 2}
+  playSoundEvent: {fileID: 11400000, guid: e9c01b2b339c30542a39c5f86634b04f, type: 2}
 --- !u!1 &2658141905295433370
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6919106896474030529}
-  - component: {fileID: 1152365836815653876}
+  - component: {fileID: 7513202300744860581}
   m_Layer: 0
   m_Name: Pawn Annoyed
   m_TagString: Untagged
@@ -84,7 +84,7 @@ Transform:
   m_Father: {fileID: 7266679300873219564}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1152365836815653876
+--- !u!114 &7513202300744860581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,12 +98,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundRef:
     Guid:
-      Data1: 1099030456
-      Data2: 1171990562
-      Data3: -292603001
-      Data4: -813640874
-    Path: event:/Demon_annoyed
-  playSoundEvent: {fileID: 11400000, guid: b053af691ce23e247b0af9c83b359256, type: 2}
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  playSoundEvent: {fileID: 0}
 --- !u!1 &3168181308950956028
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7399705816406585059}
-  - component: {fileID: 994504984499936005}
+  - component: {fileID: 1899463009948594041}
   m_Layer: 0
   m_Name: Pawn Wait For Elevator
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Transform:
   m_Father: {fileID: 7266679300873219564}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &994504984499936005
+--- !u!114 &1899463009948594041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998687499848187051}
-  - component: {fileID: 7164565418363720762}
+  - component: {fileID: 5675314122873863078}
   m_Layer: 0
   m_Name: Pawn Get Out
   m_TagString: Untagged
@@ -255,7 +255,7 @@ Transform:
   m_Father: {fileID: 7266679300873219564}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7164565418363720762
+--- !u!114 &5675314122873863078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,4 +274,4 @@ MonoBehaviour:
       Data3: -438054468
       Data4: 1590954773
     Path: event:/Demon_getout
-  playSoundEvent: {fileID: 11400000, guid: 5dae0b27949584a4eb79aff82fae3611, type: 2}
+  playSoundEvent: {fileID: 11400000, guid: fb6d3d57a89082d4e8145f20506524a9, type: 2}
