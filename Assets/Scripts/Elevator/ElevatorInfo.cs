@@ -10,6 +10,7 @@ public class ElevatorInfo : MonoBehaviour
     
     [field: SerializeField] public Transform GroundHeightTarget { get; private set; }
     [field: SerializeField] public Transform SeatTarget { get; private set; }
+    [field: SerializeField] public Transform PivotPoint { get; private set; }
     
     [field: SerializeField, ReadOnly] public bool OnPickupCooldown { get; private set; }
     [field: SerializeField, ReadOnly] public bool IsAtFloorLevel { get; private set; }

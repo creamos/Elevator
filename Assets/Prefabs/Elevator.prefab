@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joyconHandler: {fileID: 1211228234783404662}
   rotaryHandler: {fileID: 345004622408581441}
-  <PivotPoint>k__BackingField: {fileID: 8923283248339065556}
+  <ElevatorInfo>k__BackingField: {fileID: 1211228234783404617}
 --- !u!114 &345004622408581441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   floorManager: {fileID: 0}
   <GroundHeightTarget>k__BackingField: {fileID: 1211228235452236871}
   <SeatTarget>k__BackingField: {fileID: 1211228236436636748}
+  <PivotPoint>k__BackingField: {fileID: 8923283248339065556}
   <OnPickupCooldown>k__BackingField: 0
   <IsAtFloorLevel>k__BackingField: 0
   <IsReadyToPickup>k__BackingField: 0
