@@ -206,10 +206,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6902573867230041995, guid: 14b72ea1cd5b1d246848be9257613d56, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 609ca7450682b0447afc55259a03744c, type: 2}
     - target: {fileID: -5244372148433790000, guid: 14b72ea1cd5b1d246848be9257613d56, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4cbf7ab4d5df80b4da282c93c241bf2c, type: 2}
+    - target: {fileID: -5244372148433790000, guid: 14b72ea1cd5b1d246848be9257613d56, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 609ca7450682b0447afc55259a03744c, type: 2}
     - target: {fileID: 919132149155446097, guid: 14b72ea1cd5b1d246848be9257613d56, type: 3}
       propertyPath: m_Name
       value: demon_Shiny

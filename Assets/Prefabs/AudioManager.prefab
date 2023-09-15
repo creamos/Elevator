@@ -52,6 +52,58 @@ MonoBehaviour:
       Data4: 1952844504
     Path: event:/Demon_getin
   playSoundEvent: {fileID: 11400000, guid: 7fb5b8be311e5f240861ef9535e9f93f, type: 2}
+--- !u!1 &2910697032803450236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3635150442668962405}
+  - component: {fileID: 6265991464060465718}
+  m_Layer: 0
+  m_Name: Pawn Appear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3635150442668962405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910697032803450236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6265991464060465718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910697032803450236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1529325725
+      Data2: 1150244594
+      Data3: 951310524
+      Data4: -216705439
+    Path: event:/Demon_appear
+  playSoundEvent: {fileID: 11400000, guid: 934a52d376006124bb4bf31792ccaf4b, type: 2}
 --- !u!1 &3168181308950956028
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +156,214 @@ MonoBehaviour:
       Data4: 1429428939
     Path: event:/Demon_announce
   playSoundEvent: {fileID: 11400000, guid: 94edca6e554d67b45b6686e271d560fe, type: 2}
+--- !u!1 &4411235601894807926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7300847494752776414}
+  - component: {fileID: 8026904015203093151}
+  m_Layer: 0
+  m_Name: Pawn Golden Appear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7300847494752776414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411235601894807926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8026904015203093151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411235601894807926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1529325725
+      Data2: 1150244594
+      Data3: 951310524
+      Data4: -216705439
+    Path: event:/Demon_appear
+  playSoundEvent: {fileID: 11400000, guid: a2f796b5e9516ad4a9e914ece482e208, type: 2}
+--- !u!1 &4943822338431880287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7522037990071675572}
+  - component: {fileID: 5392636827817328366}
+  m_Layer: 0
+  m_Name: Pawn Fall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7522037990071675572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943822338431880287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5392636827817328366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943822338431880287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1086474822
+      Data2: 1340091401
+      Data3: -993899620
+      Data4: 1974897339
+    Path: event:/Demon_fall
+  playSoundEvent: {fileID: 11400000, guid: 6a11ab044f09bfd4e85202ae8e9d58ba, type: 2}
+--- !u!1 &5028983153207115606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004274523409878669}
+  - component: {fileID: 5305604070128034663}
+  m_Layer: 0
+  m_Name: Lose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004274523409878669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028983153207115606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5305604070128034663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028983153207115606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -536452250
+      Data2: 1274705079
+      Data3: -250130241
+      Data4: 136619663
+    Path: event:/Lose
+  playSoundEvent: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
+--- !u!1 &6510705290561370913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8002602546951767232}
+  - component: {fileID: 7401752929573475159}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8002602546951767232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6510705290561370913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7401752929573475159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6510705290561370913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 741351350
+      Data2: 1249259448
+      Data3: -2027573344
+      Data4: 1231229035
+    Path: event:/Start
+  playSoundEvent: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
 --- !u!1 &7681628943313102257
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +396,11 @@ Transform:
   - {fileID: 7399705816406585059}
   - {fileID: 1129506585716901666}
   - {fileID: 998687499848187051}
+  - {fileID: 7522037990071675572}
+  - {fileID: 3635150442668962405}
+  - {fileID: 7300847494752776414}
+  - {fileID: 2004274523409878669}
+  - {fileID: 8002602546951767232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -66,6 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStarted: {fileID: 11400000, guid: 49500ce065a829248af28b4737733cb8, type: 2}
   gameOver: {fileID: 11400000, guid: e8cd75afb0f63b342bc5e7e7903fa655, type: 2}
+  demonSpawned: {fileID: 11400000, guid: 934a52d376006124bb4bf31792ccaf4b, type: 2}
+  goldenSpawned: {fileID: 11400000, guid: a2f796b5e9516ad4a9e914ece482e208, type: 2}
   difficultyProgressSettings: {fileID: 11400000, guid: 514c404f7f711ee459d0006425c66c00, type: 2}
   spawnRateOverTime:
     serializedVersion: 2
