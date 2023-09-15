@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,13 +8,15 @@ public class JoyconHandler : MonoBehaviour
 {
     [SerializeField] private float sensitivity = 1f;
     [SerializeField] private float sharpness = 1f;
-    
+
     private JoyconManager joyconManager;
     private Joycon joycon;
 
-    public Vector3 JoyconRotation = Vector3.zero;
-    private Vector3 targetJoyconRotation = Vector3.zero;
-    
+    private Vector3 gyroRawInput;
+    public Quaternion JoyconRotation;
+    [ShowNonSerializedField] private Vector3 targetJoyconRotation = Vector3.zero;
+    [SerializeField] private bool invertY, invertZ;
+
 
     private void Awake()
     {
@@ -25,7 +28,7 @@ public class JoyconHandler : MonoBehaviour
         HandleJoycon();
     }
 
-    private void HandleJoycon()
+    private bool HandleJoyconConnection()
     {
         if (joycon == null)
         {
@@ -35,14 +38,34 @@ public class JoyconHandler : MonoBehaviour
             }
             else
             {
-                JoyconRotation = Vector3.zero;
-                return;
+                JoyconRotation = Quaternion.identity;
+                return false;
             }
         }
 
-        targetJoyconRotation = joycon.GetGyro() * sensitivity;
-        JoyconRotation = Vector3.Slerp(JoyconRotation, targetJoyconRotation, Time.deltaTime * sharpness);
-        Debug.Log((targetJoyconRotation - JoyconRotation).magnitude);
+        return true;
+    }
+
+    private Vector3 GetGyro()
+    {
+        Vector3 gyro = joycon.GetGyro();
+        gyro = new Vector3(gyro[1] * (invertY?-1:1), 0, gyro[2] * (invertZ?-1:1));
+        return gyro;
+    }
+
+    private void HandleJoycon()
+    {
+        if (!HandleJoyconConnection()) return;
+
+        targetJoyconRotation = GetGyro() * sensitivity;
+
+        
+        gyroRawInput = Vector3.Slerp(gyroRawInput, targetJoyconRotation, Time.deltaTime * sharpness);
+        //Debug.Log((targetJoyconRotation - gyroRawInput).magnitude);
+        
+        JoyconRotation *= Quaternion.Euler(gyroRawInput);
+        JoyconRotation = Quaternion.Lerp(JoyconRotation, Quaternion.identity, 1 - Mathf.Pow(0.25f, Time.deltaTime));
+        JoyconRotation = Quaternion.Euler(Vector3.Scale(JoyconRotation.eulerAngles, new Vector3(1,0,1)));
         
         if (Input.GetKeyDown(KeyCode.Space))
             joycon.Recenter();
