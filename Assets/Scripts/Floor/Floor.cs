@@ -14,7 +14,7 @@ public class Floor : MonoBehaviour
     
     public int Index;
     public int DisplayIndex => GetDisplayIndex(Index);
-    public static int GetDisplayIndex(int index) => index;
+    public static int GetDisplayIndex(int index) => index + 1;
     
     public List<Pawn> WaitingPawns;
     public Transform GroundHeightTarget, ExitElevatorTarget, ExitFloorTarget;
@@ -24,15 +24,13 @@ public class Floor : MonoBehaviour
 
     private int pawnCount;
     private int floorCount;
-    private Pawn pawnPrefab;
 
     public Vector3 GetWaitingPos(int positionInQueue) => offset * positionInQueue * Vector3.left + waitingPos.position;
 
-    public void Init(int index, int floorCount, int maxPawns, Pawn pawnPrefab)
+    public void Init(int index, int floorCount, int maxPawns)
     {
         Index = index;
         this.floorCount = floorCount;
-        this.pawnPrefab = pawnPrefab;
         
         pawnCount = 0;
         

@@ -15,7 +15,9 @@ public class PawnMovementInQueueBehaviour : MonoBehaviour
 
     [field: ShowNonSerializedField, ReadOnly]
     private bool isReachingWaitingPos;
-    
+
+    public bool IsReachingWaitingPos => isReachingWaitingPos;
+
     private Vector3 waitingSlot;
     private int waitingSlotID;
 

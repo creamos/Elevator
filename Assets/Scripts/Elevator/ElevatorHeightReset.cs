@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using NaughtyAttributes;
 using ScriptableEvents;
 using UnityEngine;
 
+[RequireComponent(typeof(Elevator))]
 public class ElevatorHeightReset : MonoBehaviour
 {
     [SerializeField, BoxGroup("Listened Events")]
-    private GameEvent resetElevatorHeightRequest; 
+    private GameEvent resetElevatorHeightRequest;
+
+    private Elevator elevator;
     
     [SerializeField] private KeyCode resetKey = KeyCode.Space;
     [SerializeField] private bool teleportReset;
@@ -29,6 +33,11 @@ public class ElevatorHeightReset : MonoBehaviour
             resetElevatorHeightRequest.OnTriggered -= OnResetRequest;
     }
 
+    private void Awake()
+    {
+        elevator = GetComponent<Elevator>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(resetKey))
@@ -49,7 +58,7 @@ public class ElevatorHeightReset : MonoBehaviour
             else
             {
                 resetRoutine = StartCoroutine(ResyncHeightCrt());
-
+                
                 IEnumerator ResyncHeightCrt()
                 {
                     float startTime = Time.time;
@@ -58,13 +67,16 @@ public class ElevatorHeightReset : MonoBehaviour
 
                     Vector3 initialPos = transform.position;
                     Vector3 endPos = new Vector3(initialPos.x, resetHeight, initialPos.z);
+                    
+                    Quaternion initialRot = elevator.PivotPoint.rotation;
+                    Quaternion endRot = Quaternion.identity;
 
                     do
                     {
                         progress = Mathf.Clamp01((Time.time - startTime) / duration);
                         transform.position = Vector3.Lerp(initialPos, endPos, progress);
+                        elevator.PivotPoint.rotation = Quaternion.Lerp(initialRot, endRot, progress);
                         yield return null;
-                
                     } while (progress < 1);
 
                     resetRoutine = null;
