@@ -7,7 +7,8 @@ public class Elevator : MonoBehaviour
     [SerializeField] private RotaryHandler rotaryHandler;
 
     [ShowNonSerializedField] private bool isReadingInput;
-    [field: SerializeField] public Transform PivotPoint { get; private set; }
+    public Transform PivotPoint => ElevatorInfo.PivotPoint;
+    [field: SerializeField] public ElevatorInfo ElevatorInfo { get; private set; }
 
     public void EnablePlayerInputs(bool state) => isReadingInput = state;
 

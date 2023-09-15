@@ -169,7 +169,17 @@ public class Pawn : MonoBehaviour
     private IEnumerator JumpInElevator()
     {
         yield return JumpTo(ElevatorInfo.Instance.SeatTarget, 1f, 0.5f);
-        transform.parent = ElevatorInfo.Instance.transform;
+        transform.parent = ElevatorInfo.Instance.SeatTarget;
+
+        while (Quaternion.Angle(transform.localRotation, Quaternion.identity) > 0.1f)
+        {
+            transform.localRotation = Quaternion.Lerp(
+                transform.localRotation, 
+                Quaternion.identity, 
+                1 - Mathf.Pow(0.25f, Time.deltaTime));
+
+            yield return null;
+        }
     }
 
     private IEnumerator JumpOutElevator()
