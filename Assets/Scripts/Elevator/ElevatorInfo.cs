@@ -1,5 +1,6 @@
 using System.Collections;
 using NaughtyAttributes;
+using ScriptableEvents;
 using UnityEngine;
 
 public class ElevatorInfo : MonoBehaviour
@@ -7,6 +8,8 @@ public class ElevatorInfo : MonoBehaviour
     public static ElevatorInfo Instance { get; private set; }
     
     [SerializeField] private FloorManager floorManager;
+
+    [SerializeField] private IntEvent elevatorAtFloor;
     
     [field: SerializeField] public Transform GroundHeightTarget { get; private set; }
     [field: SerializeField] public Transform SeatTarget { get; private set; }
@@ -36,8 +39,11 @@ public class ElevatorInfo : MonoBehaviour
 
     private void UpdateFloorLevel()
     {
+        bool wasAtFloorLevel = IsAtFloorLevel;
+        
         IsAtFloorLevel = false;
         FloorLevel = -1;
+
 
         foreach (Floor floor in floorManager.Floors)
         {
@@ -50,6 +56,8 @@ public class ElevatorInfo : MonoBehaviour
                 IsAtFloorLevel = true;
                 FloorLevel = floor.Index;
 
+                elevatorAtFloor.Raise(FloorLevel);
+                
                 break;
             }
         }
@@ -58,6 +66,9 @@ public class ElevatorInfo : MonoBehaviour
         {
             alignmentElapsedTime -= Time.deltaTime * 2f;
             alignmentElapsedTime = Mathf.Clamp(alignmentElapsedTime,  0, pickupAlignmentDuration);
+            
+            
+            if(wasAtFloorLevel) elevatorAtFloor.Raise(-1);
         }
         
         IsReadyToPickup = alignmentElapsedTime >= pickupAlignmentDuration;

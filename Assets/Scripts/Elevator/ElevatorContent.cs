@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using ScriptableEvents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(ElevatorInfo))]
 public class ElevatorContent : MonoBehaviour
@@ -19,6 +20,8 @@ public class ElevatorContent : MonoBehaviour
     
     [SerializeField, BoxGroup("Raised Events")]
     private PawnEvent onPawnPickup;
+
+    [SerializeField] private float postPickupCooldownDuration = 0.5f;
     
     private FloorManager floors;
     private ElevatorInfo elevatorInfo;
@@ -79,7 +82,7 @@ public class ElevatorContent : MonoBehaviour
                 if (Passenger.Destination == floor.Index)
                 {
                     ReleasePassenger();
-                    elevatorInfo.SetPickupCooldown(0.25f);
+                    elevatorInfo.SetPickupCooldown(postPickupCooldownDuration);
                 }
             }
         }

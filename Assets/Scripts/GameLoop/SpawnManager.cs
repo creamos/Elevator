@@ -11,6 +11,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField, BoxGroup("Listened Events")]
     private GameEvent gameStarted, gameOver;
     
+    [SerializeField, BoxGroup("Raised Events")]
+    private GameEvent demonSpawned, goldenSpawned;
     [field: ShowNonSerializedField] public bool IsRunning { get; private set; }
     private Coroutine spawnRoutine;
     private float startTime, lastSpawnTime, nextSpawnTime;
@@ -112,6 +114,11 @@ public class SpawnManager : MonoBehaviour
             }
             
             if (!successfulSpawn) return;
+            
+            if(spawnBonusPawn)
+                goldenSpawned.Raise();
+            else
+                demonSpawned.Raise();
             
             lastSpawnTime = nextSpawnTime;
             float delay = difficultyProgressSettings.SpawnDelayOverTime.Evaluate(inGameTime / 60.0f);

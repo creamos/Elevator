@@ -431,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 49038356601374269}
   text: {fileID: 5589696534318812903}
+  elevatorAtFloor: {fileID: 11400000, guid: e85240fce908f1d4a9999196b3a6576e, type: 2}
 --- !u!1 &7327288066685698181
 GameObject:
   m_ObjectHideFlags: 0
