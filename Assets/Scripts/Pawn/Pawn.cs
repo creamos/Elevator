@@ -164,6 +164,11 @@ public class Pawn : MonoBehaviour
     {
         destinationBubble.Show();
     }
+
+    public void SetAngry()
+    {
+        destinationBubble.SetAngry();
+    }
     
 
     private IEnumerator JumpInElevator()

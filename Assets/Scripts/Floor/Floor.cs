@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using ScriptableEvents;
 using UnityEngine;
@@ -86,6 +87,9 @@ public class Floor : MonoBehaviour
         pawn.MovementInQueueBehaviour.SetWaitingSlot(GetWaitingPos(pawnCount), pawnCount);
             
         pawnCount += 1;
+
+        if (pawnCount == WaitingPawns.Count)
+            WaitingPawns[0].SetAngry();
 
         return true;
     }
