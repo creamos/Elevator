@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using ScriptableEvents;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,8 @@ using Random = UnityEngine.Random;
 
 public class DestinationBubble : MonoBehaviour
 {
-
+    [SerializeField] private GameEvent onPawnAngry;
+    
     [SerializeField] private TextMeshProUGUI contentText;
     [SerializeField] private Image bubbleImage;
 
@@ -84,6 +86,7 @@ public class DestinationBubble : MonoBehaviour
 
     private void SetAngryBubble()
     {
+        onPawnAngry.Raise();
         StartCoroutine(SetBubbleAngryCrt());
     }
 

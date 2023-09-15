@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c41426cb60fdc45819988b3c2d8038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPawnAngry: {fileID: 11400000, guid: e8539033ddef7c447baa8a064024d52b, type: 2}
   contentText: {fileID: 6886409054928551817}
   bubbleImage: {fileID: 7505414885034294158}
   showScalingCurve:

@@ -156,6 +156,58 @@ MonoBehaviour:
       Data4: 1429428939
     Path: event:/Demon_announce
   playSoundEvent: {fileID: 11400000, guid: 94edca6e554d67b45b6686e271d560fe, type: 2}
+--- !u!1 &4230653509429586522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47026294891169117}
+  - component: {fileID: 2964892645456947529}
+  m_Layer: 0
+  m_Name: Pawn Angry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &47026294891169117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230653509429586522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7266679300873219564}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2964892645456947529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230653509429586522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301dfebb9aac4a039db55f83cd6fa524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1099030456
+      Data2: 1171990562
+      Data3: -292603001
+      Data4: -813640874
+    Path: event:/Demon_annoyed
+  playSoundEvent: {fileID: 11400000, guid: e8539033ddef7c447baa8a064024d52b, type: 2}
 --- !u!1 &4411235601894807926
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +453,7 @@ Transform:
   - {fileID: 7300847494752776414}
   - {fileID: 2004274523409878669}
   - {fileID: 8002602546951767232}
+  - {fileID: 47026294891169117}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
