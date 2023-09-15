@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MI_cardboard
+  m_Name: MI_cardboard_brown
   m_Shader: {fileID: -6465566751694194690, guid: 494b57293f7200b4b9affe8b7d1cca62, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -51,5 +51,5 @@ Material:
     - _QueueOffset: 0
     - _Roughness: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.764151, g: 0.60513955, b: 0.43614277, a: 0}
   m_BuildTextureStacks: []
