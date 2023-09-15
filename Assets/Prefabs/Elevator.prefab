@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serialCommunication: {fileID: 0}
   sensitivity: 1.5
-  sharpness: 3
+  sharpness: 4
   upBias: 1
   downBias: 2.86
   debugMode: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   onPawnFall: {fileID: 11400000, guid: 6a11ab044f09bfd4e85202ae8e9d58ba, type: 2}
   onPawnDrop: {fileID: 11400000, guid: 5dae0b27949584a4eb79aff82fae3611, type: 2}
   onPawnPickup: {fileID: 11400000, guid: 7fb5b8be311e5f240861ef9535e9f93f, type: 2}
+  postPickupCooldownDuration: 0.75
   Passenger: {fileID: 0}
 --- !u!114 &1211228234783404617
 MonoBehaviour:
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorManager: {fileID: 0}
+  elevatorAtFloor: {fileID: 11400000, guid: e85240fce908f1d4a9999196b3a6576e, type: 2}
   <GroundHeightTarget>k__BackingField: {fileID: 1211228235452236871}
   <SeatTarget>k__BackingField: {fileID: 1211228236436636748}
   <PivotPoint>k__BackingField: {fileID: 8923283248339065556}
